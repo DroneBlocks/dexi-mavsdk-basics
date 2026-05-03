@@ -44,6 +44,10 @@ Pick one, modify one, or invent your own. Anything that's a real mission counts.
 4. Run it. Watch it fly in the Unity sim.
 5. Capture a screenshot of the Unity sim mid-flight, or a short screen recording. Save it next to your `mission.py`.
 
+> **Want to see a working example before you start?** Run `python3 solution_photo_tour.py` — it imports the filled-in helpers from `08-your-own-module/solution_dexi_helpers.py` and flies a four-landmark Photo Tour. Use it as inspiration, not a template to copy.
+>
+> **Note:** the stub `mission.py` imports from `08-your-own-module/dexi_helpers.py`. If you skipped Lesson 8 (or didn't fill in your helpers), copy them in first: `cp ../08-your-own-module/solution_dexi_helpers.py ../08-your-own-module/dexi_helpers.py`.
+
 ## Rubric (for teachers)
 
 - [ ] Mission completes without crashing

@@ -13,7 +13,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "08-your-own-module"))
-from dexi_helpers import connect, takeoff_to, safe_land
+# Use the worked solution helpers so this script flies regardless of whether
+# the student has filled in their own dexi_helpers.py from Lesson 8.
+from solution_dexi_helpers import connect, takeoff_to, safe_land
 
 from mavsdk.offboard import OffboardError, PositionNedYaw
 

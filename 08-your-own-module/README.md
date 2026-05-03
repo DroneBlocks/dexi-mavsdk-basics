@@ -35,6 +35,8 @@ The shorter form `from dexi_helpers import takeoff_to` does the same thing but l
    ```
 4. Run `python3 mission.py`. It should look almost like English.
 
+> **Stuck or just want to see it work first?** Run `python3 solution.py` — it imports the filled-in helpers from `solution_dexi_helpers.py` and flies the same mission.
+
 ## Why this is a big deal
 
 Compare your `mission.py` to your Lesson 2 `starter.py`. The Lesson 2 script was 50 lines of detail. The Lesson 8 mission is 10 lines of intent. Same flight, completely different to read. **That's what a good module does** — it lets you write code at the level you're thinking, not at the level the drone needs.

@@ -1,0 +1,12 @@
+# Internal video production notes — not for student consumption
+VIDEO.md
+
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+*.log

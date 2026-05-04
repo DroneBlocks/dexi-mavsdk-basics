@@ -14,7 +14,12 @@ from mavsdk import System
 from mavsdk.offboard import OffboardError, VelocityBodyYawspeed
 
 
-# TODO 1: write `async def wait_until_altitude(drone, target_m, tolerance=0.3):`
+# TODO 1: write `async def wait_until_altitude(drone, target_m, tolerance=0.3, timeout_s=30):`
+#         - Loop over drone.telemetry.position()
+#         - Return when abs(altitude - target) < tolerance
+#         - Wrap the loop in asyncio.wait_for(..., timeout=timeout_s) so the
+#           function gives up after timeout_s instead of hanging forever if the
+#           drone never reaches that altitude
 
 
 async def takeoff_to(drone, altitude_m):

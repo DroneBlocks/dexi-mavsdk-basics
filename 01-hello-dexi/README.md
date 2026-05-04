@@ -25,6 +25,24 @@ Motors, sensors, the actual flight
 
 You only ever touch the top of that stack. MAVSDK does the rest. The exact same Python code talks to a simulated drone today and a real one in Lesson 10 — only the address changes.
 
+## How MAVSDK actually works under the hood
+
+When you call `await drone.connect(...)`, MAVSDK quietly does something cool: it starts a small **C++ helper process called `mavsdk_server`** in the background, and your Python code talks to it over a fast local channel called **gRPC**. That C++ process is what actually speaks MAVLink to the drone.
+
+Why two pieces? Because the heavy lifting — parsing thousands of MAVLink messages per second, keeping the link alive — is faster in C++. The Python library is a thin, friendly wrapper that lets you forget the messy parts.
+
+You'll never start, stop, or talk to `mavsdk_server` directly. But if you ever run `ps` while a script is alive and spot a process with that name, **that's not a stray — it's MAVSDK doing its job.**
+
+## What's in that connection string?
+
+`udpin://0.0.0.0:14540` looks like gibberish. Let's break it down:
+
+- **`udpin`** means "*listen* for incoming UDP messages" — we wait for the drone to talk to us. The opposite is **`udpout`**, meaning "*reach out* to a specific drone." You'll use `udpout` in Lesson 10 when we aim the same code at a real DEXI on your WiFi.
+- **`0.0.0.0`** means "listen on every network interface on this computer." The simulator runs on the same machine, so it doesn't matter which interface — `0.0.0.0` is the catch-all.
+- **`14540`** is the port number. By PX4 convention, **port 14540 is reserved for offboard / SDK control** — that's where MAVSDK and other developer tools live. Port 14550 is reserved for ground stations like QGroundControl. PX4 happily talks to both at once.
+
+Same string, all the way through Lesson 9. Lesson 10 is the one place it changes.
+
 ## What you need
 
 - The DEXI Simulator running (Unity scene + PX4 SITL)

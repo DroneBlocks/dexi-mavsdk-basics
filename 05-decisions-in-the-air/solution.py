@@ -8,12 +8,16 @@ from mavsdk import System
 from mavsdk.offboard import OffboardError, VelocityBodyYawspeed
 
 
-async def wait_until_altitude(drone, target_m, tolerance=0.3):
-    async for pos in drone.telemetry.position():
-        diff = abs(pos.relative_altitude_m - target_m)
-        if diff < tolerance:
-            print(f"reached {target_m}m")
-            return
+async def wait_until_altitude(drone, target_m, tolerance=0.3, timeout_s=30):
+    async def _loop():
+        async for pos in drone.telemetry.position():
+            if abs(pos.relative_altitude_m - target_m) < tolerance:
+                print(f"reached {target_m}m")
+                return
+    try:
+        await asyncio.wait_for(_loop(), timeout=timeout_s)
+    except asyncio.TimeoutError:
+        print(f"timeout: didn't reach {target_m}m in {timeout_s}s")
 
 
 async def takeoff_to(drone, altitude_m):

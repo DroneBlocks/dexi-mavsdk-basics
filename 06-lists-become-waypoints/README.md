@@ -61,7 +61,15 @@ Each tuple is `(north, east, down)`. All down values are `-3.0` because we're st
 
 `PositionNedYaw(north, east, down, yaw)` is one waypoint. We pass it to `drone.offboard.set_position_ned(...)`, and the drone flies there. The fourth argument (`yaw`) is which way the drone faces — `0.0` means "keep facing north."
 
-In offboard mode, **the drone must keep receiving setpoints** or it'll trigger a failsafe. The `asyncio.sleep(5)` between waypoints gives time for the drone to arrive while the offboard heartbeat keeps streaming in the background.
+## ⚠️ The offboard rule you must not break
+
+> **In offboard mode, the drone needs a fresh setpoint at least every 0.5 seconds.** If setpoints stop arriving — your script crashes, hangs in a long calculation, sleeps too long — PX4 assumes your code died, drops out of offboard, and triggers a failsafe (typically a hold or a land). This is a safety feature, not a bug.
+
+In our loop, each call to `set_position_ned(...)` IS a fresh setpoint, and MAVSDK keeps the connection warm in the background while we sleep. That's fine for this lesson. But if you ever extend the script — say, you want to do a long calculation between waypoints — you need to keep streaming setpoints during that work. **A common pattern is a background coroutine that re-sends the current setpoint every 100ms.** You don't need it today; just know the rule exists.
+
+## Two ways drones fly waypoints (a heads-up)
+
+What you're doing here is called **offboard mode** — your code drives the drone, one setpoint at a time. PX4 also supports a second model called **mission mode**, where you upload a *plan* (a list of waypoints with rules like "loiter for 30s here") and tell PX4 to execute it on its own. We use offboard in this course because it's interactive — you can change your mind mid-flight, react to telemetry, build state machines. Mission mode is great for "here are 50 survey points, fly all of them and tell me when you're done." We may cover it in a future course.
 
 ## Stretch challenge
 

@@ -33,6 +33,18 @@ Why two pieces? Because the heavy lifting — parsing thousands of MAVLink messa
 
 You'll never start, stop, or talk to `mavsdk_server` directly. But if you ever run `ps` while a script is alive and spot a process with that name, **that's not a stray — it's MAVSDK doing its job.**
 
+### Heads-up: warnings you can ignore
+
+Starting in Lesson 2, when your scripts arm and switch flight modes, you'll see lines like this in your terminal:
+
+```
+Received ack for not-existing command: 176! Ignoring... (mavlink_command_sender.cpp:304)
+```
+
+That's `mavsdk_server` (the C++ helper above) talking to itself, not an error in your code. Here's what it means in plain English: **MAVSDK asked PX4 to switch flight modes, didn't hear back fast enough, sent the request again, and then both replies showed up.** MAVSDK only expected one reply, so it logs that it's ignoring the extra one. Your flight is fine — the command worked.
+
+**Rule of thumb:** "Ignoring..." is a warning, not an error. Your script keeps running. Real errors stop your script with a Python traceback.
+
 ## What's in that connection string?
 
 `udpin://0.0.0.0:14540` looks like gibberish. Let's break it down:

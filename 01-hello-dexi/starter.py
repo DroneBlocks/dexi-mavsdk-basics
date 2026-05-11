@@ -16,7 +16,10 @@ from mavsdk import System
 async def main():
     drone = System()
 
-    # TODO: replace "" with the SITL connection string
+    # TODO: replace "" with a connection string from the list below.
+    #   Simulator (start here):    udpin://0.0.0.0:14540
+    #   Running on DEXI's Pi:      udpout://127.0.0.1:14540
+    #   Host on DEXI's WiFi:       udpout://192.168.4.1:14540
     await drone.connect(system_address="")
 
     print("Waiting for drone...")

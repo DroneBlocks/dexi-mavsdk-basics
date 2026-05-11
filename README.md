@@ -15,9 +15,9 @@ Middle school and up. You should already know Python basics: variables, function
 3. In code-server, open a terminal: **Terminal → New Terminal**.
 4. Verify MAVSDK is installed:
    ```
-   python3 -c "import mavsdk; print(mavsdk.__version__)"
+   python3 -m pip show mavsdk
    ```
-   You should see a version number. If you see an error, ask your teacher.
+   You should see a `Name: mavsdk` / `Version: …` block. If you see `Package(s) not found`, ask your teacher.
 5. Get the lessons:
    ```
    cd ~
@@ -25,6 +25,30 @@ Middle school and up. You should already know Python basics: variables, function
    cd dexi-mavsdk-basics
    ```
    No GitHub account needed — anyone can clone a public repo. We won't push anything in this course.
+
+## Running on your own computer
+
+If you're flying a **real DEXI** from your laptop (Lesson 10), or want to run the lessons outside the simulator container, set up a Python virtual environment. macOS and most modern Linuxes block system-wide `pip install` with an *"externally-managed-environment"* error — a venv is the standard fix.
+
+From the repo root:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Verify it worked:
+
+```bash
+python3 -m pip show mavsdk
+```
+
+Look for the `Version: …` line.
+
+Each new terminal session, re-activate: `source .venv/bin/activate`. To leave the venv: `deactivate`.
+
+> Inside the DEXI Simulator container, MAVSDK is preinstalled — skip this section and use the verify command in **Before you start** above.
 
 ## The 10 lessons
 

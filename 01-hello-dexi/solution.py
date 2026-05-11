@@ -11,7 +11,12 @@ from mavsdk import System
 
 async def main():
     drone = System()
-    await drone.connect(system_address="udpin://0.0.0.0:14540")
+
+    # Connection string — pick one. See README for context.
+    #   Simulator (this lesson):   udpin://0.0.0.0:14540
+    #   Running on DEXI's Pi:      udpout://127.0.0.1:14540
+    #   Host on DEXI's WiFi:       udpout://192.168.4.1:14540
+    await drone.connect(system_address="udpout://192.168.68.62:14540")
 
     print("Waiting for drone...")
     async for state in drone.core.connection_state():

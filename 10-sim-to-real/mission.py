@@ -6,7 +6,7 @@ Run against the sim:
     python3 mission.py
 
 Run against a real DEXI on your WiFi:
-    DEXI_ADDRESS=udpout://192.168.68.59:14540 python3 mission.py
+    DEXI_ADDRESS=udpout://192.168.4.1:14540 python3 mission.py
 """
 
 import asyncio

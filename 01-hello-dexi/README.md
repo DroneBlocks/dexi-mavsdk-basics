@@ -5,7 +5,7 @@
 
 ## The story
 
-A drone is a computer with rotors. Before you can fly it, you have to talk to it. In this lesson you'll write the smallest possible program that talks to the DEXI Simulator — one that just says hello.
+DEXI is a computer with rotors. Before you can fly it, you have to talk to it. In this lesson you'll write the smallest possible program that talks to the DEXI Simulator — one that just says hello.
 
 ## What is MAVSDK?
 
@@ -70,11 +70,11 @@ Same string, all the way through Lesson 9. Lesson 10 is the one place it changes
    ```
    You'll probably see `Requirement already satisfied: mavsdk` — the simulator container ships with it. **That's the success message**, not a problem. It means MAVSDK is ready.
 
-   Confirm the version:
+   Confirm it's there:
    ```
-   python3 -c "import mavsdk; print(mavsdk.__version__)"
+   python3 -m pip show mavsdk
    ```
-   Any version number is fine. (When you eventually run lessons on your own laptop, this same command tells you whether you need to install it for real.)
+   You'll see a `Name: mavsdk` / `Version: …` block. Any version is fine. (When you eventually run lessons on your own laptop, this same command tells you whether you need to install it for real.)
 3. Open `01-hello-dexi/starter.py` in code-server and read every line. None of it should be a mystery.
 4. Find the `TODO` and replace it with the SITL connection string:
    ```

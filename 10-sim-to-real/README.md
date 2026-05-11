@@ -11,7 +11,7 @@ In Lesson 1 we said: code you write in the simulator runs unchanged on a real DE
 
 | | Sim | Real DEXI |
 |---|---|---|
-| Connection address | `udpin://0.0.0.0:14540` | `udpout://192.168.68.59:14540` (your DEXI's IP) |
+| Connection address | `udpin://0.0.0.0:14540` | `udpout://192.168.4.1:14540` (DEXI's default access-point IP) |
 | Where you run the script | code-server in the sim container | A laptop on the same WiFi as the drone |
 | Everything else | identical | identical |
 
@@ -42,7 +42,7 @@ That's it. Same `await drone.action.arm()`, same `await drone.offboard.set_posit
 You won't actually run this today (no hardware). But this is the command you'd use:
 
 ```bash
-DEXI_ADDRESS=udpout://192.168.68.59:14540 python3 mission.py
+DEXI_ADDRESS=udpout://192.168.4.1:14540 python3 mission.py
 ```
 
 The `DEXI_ADDRESS=...` part sets an environment variable just for that command. `os.environ.get(...)` in your script reads it. **Same script. Different drone.**

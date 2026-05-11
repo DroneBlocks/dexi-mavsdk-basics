@@ -14,6 +14,10 @@ async def main():
     drone = System()
 
     print("Connecting...")
+    # Connection string — pick one. See README for context.
+    #   Simulator (this lesson):   udpin://0.0.0.0:14540
+    #   Running on DEXI's Pi:      udpout://127.0.0.1:14540
+    #   Host on DEXI's WiFi:       udpout://192.168.4.1:14540
     await drone.connect(system_address="udpin://0.0.0.0:14540")
 
     async for state in drone.core.connection_state():

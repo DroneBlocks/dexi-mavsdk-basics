@@ -15,6 +15,10 @@ from solution_dexi_helpers import connect, takeoff_to, safe_land
 
 
 async def main():
+    # Connection string — pick one. See README for context.
+    #   Simulator (this lesson):   udpin://0.0.0.0:14540
+    #   Running on DEXI's Pi:      udpout://127.0.0.1:14540
+    #   Host on DEXI's WiFi:       udpout://192.168.4.1:14540
     drone = await connect("udpin://0.0.0.0:14540")
     try:
         await takeoff_to(drone, 2.5)

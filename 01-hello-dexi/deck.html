@@ -144,7 +144,7 @@ code {
 .callout-green  { background: #f0fdf4; border: 1px solid #bbf7d0; }
 .callout-green  p { color: #166534; }
 
-/* Two-card row (e.g. async def / async for) */
+/* Two-card row */
 .two-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0; }
 .kw-card { background: var(--surface); border-radius: 16px; padding: 24px; }
 .kw-card .kw {
@@ -221,7 +221,7 @@ code {
 <!-- 1. COVER -->
 <div class="slide cover" id="slide-1">
   <div class="slide-inner">
-    <div class="slide-number">01 / 13</div>
+    <div class="slide-number">01 / 12</div>
     <div class="eyebrow">Lesson 1 of 10 · MAVSDK Basics</div>
     <h1>Hello, DEXI</h1>
     <div class="subtitle">The smallest possible program that says hello to a drone.</div>
@@ -232,7 +232,7 @@ code {
 <!-- 2. HOOK -->
 <div class="slide" id="slide-2">
   <div class="slide-inner">
-    <div class="slide-number">02 / 13</div>
+    <div class="slide-number">02 / 12</div>
     <div class="section-label">The Hook</div>
     <h2>DEXI is a computer with rotors.</h2>
     <p class="big-line">Before you can fly it, you have to talk to it.</p>
@@ -242,7 +242,7 @@ code {
 <!-- 3. GOAL -->
 <div class="slide" id="slide-3">
   <div class="slide-inner">
-    <div class="slide-number">03 / 13</div>
+    <div class="slide-number">03 / 12</div>
     <div class="section-label">Today's Goal</div>
     <h2>One Python program. The drone says hello.</h2>
     <div class="callout callout-green">
@@ -254,7 +254,7 @@ code {
 <!-- 4. LAYER CAKE -->
 <div class="slide" id="slide-4">
   <div class="slide-inner">
-    <div class="slide-number">04 / 13</div>
+    <div class="slide-number">04 / 12</div>
     <div class="section-label">The Layer Cake</div>
     <h2>You only ever touch the top.</h2>
     <div class="stack">
@@ -274,7 +274,7 @@ code {
 <!-- 5. HIDDEN HELPER -->
 <div class="slide" id="slide-5">
   <div class="slide-inner">
-    <div class="slide-number">05 / 13</div>
+    <div class="slide-number">05 / 12</div>
     <div class="section-label">The Hidden Helper</div>
     <h2><code>mavsdk_server</code></h2>
     <p class="big-line">A C++ process MAVSDK starts in the background.</p>
@@ -286,7 +286,7 @@ code {
 <!-- 6. THE CONNECTION STRING -->
 <div class="slide" id="slide-6">
   <div class="slide-inner">
-    <div class="slide-number">06 / 13</div>
+    <div class="slide-number">06 / 12</div>
     <div class="section-label">The Connection String</div>
     <h2>How Python finds the drone.</h2>
     <div class="anatomy">
@@ -312,7 +312,7 @@ code {
 <!-- 7. udpin vs udpout -->
 <div class="slide" id="slide-7">
   <div class="slide-inner">
-    <div class="slide-number">07 / 13</div>
+    <div class="slide-number">07 / 12</div>
     <div class="section-label">Listen vs. Reach Out</div>
     <h2>One word changes for real hardware.</h2>
     <div class="two-cards">
@@ -334,7 +334,7 @@ code {
 <!-- 8. PORT 14540 -->
 <div class="slide" id="slide-8">
   <div class="slide-inner">
-    <div class="slide-number">08 / 13</div>
+    <div class="slide-number">08 / 12</div>
     <div class="section-label">Why 14540?</div>
     <h2>PX4 reserves two ports.</h2>
     <div class="two-cards">
@@ -351,30 +351,11 @@ code {
   </div>
 </div>
 
-<!-- 9. TWO NEW KEYWORDS -->
+
+<!-- 9. THE DEMO -->
 <div class="slide" id="slide-9">
   <div class="slide-inner">
-    <div class="slide-number">09 / 13</div>
-    <div class="section-label">Two New Words</div>
-    <h2>You'll see these. Don't worry yet.</h2>
-    <div class="two-cards">
-      <div class="kw-card">
-        <div class="kw">async def</div>
-        <p>A function that does work over time. Talking to a drone takes time.</p>
-      </div>
-      <div class="kw-card">
-        <div class="kw">async for</div>
-        <p>Loops over a stream of data — like the drone's connection state.</p>
-      </div>
-    </div>
-    <div class="tiny-note">We dig in next lesson. For now, just type them.</div>
-  </div>
-</div>
-
-<!-- 10. THE DEMO -->
-<div class="slide" id="slide-10">
-  <div class="slide-inner">
-    <div class="slide-number">10 / 13</div>
+    <div class="slide-number">09 / 12</div>
     <div class="section-label">The Demo</div>
     <h2>Three commands. One handshake.</h2>
     <div class="demo-steps">
@@ -394,10 +375,10 @@ code {
   </div>
 </div>
 
-<!-- 11. THE WIN -->
-<div class="slide" id="slide-11">
+<!-- 10. THE WIN -->
+<div class="slide" id="slide-10">
   <div class="slide-inner win">
-    <div class="slide-number">11 / 13</div>
+    <div class="slide-number">10 / 12</div>
     <div class="section-label">The Win</div>
     <h2>You should see this.</h2>
     <div class="code-block" style="text-align:left;">
@@ -408,10 +389,10 @@ code {
   </div>
 </div>
 
-<!-- 12. STRETCH -->
-<div class="slide" id="slide-12">
+<!-- 11. STRETCH -->
+<div class="slide" id="slide-11">
   <div class="slide-inner">
-    <div class="slide-number">12 / 13</div>
+    <div class="slide-number">11 / 12</div>
     <div class="section-label">Stretch Challenge</div>
     <h2>Ask the drone what firmware it's running.</h2>
     <div class="code-block">
@@ -422,10 +403,10 @@ code {
   </div>
 </div>
 
-<!-- 13. CLOSING -->
-<div class="slide cover" id="slide-13">
+<!-- 12. CLOSING -->
+<div class="slide cover" id="slide-12">
   <div class="slide-inner">
-    <div class="slide-number">13 / 13</div>
+    <div class="slide-number">12 / 12</div>
     <div class="eyebrow">Up Next</div>
     <h1>Lesson 2:<br>Your First Flight</h1>
     <div class="subtitle">This same drone takes off, hovers, and lands — all from Python.</div>
@@ -442,11 +423,10 @@ code {
   <button class="nav-dot" data-slide="6"  title="The connection string"></button>
   <button class="nav-dot" data-slide="7"  title="udpin vs udpout"></button>
   <button class="nav-dot" data-slide="8"  title="Why 14540"></button>
-  <button class="nav-dot" data-slide="9" title="async def / async for"></button>
-  <button class="nav-dot" data-slide="10" title="The Demo"></button>
-  <button class="nav-dot" data-slide="11" title="The Win"></button>
-  <button class="nav-dot" data-slide="12" title="Stretch Challenge"></button>
-  <button class="nav-dot" data-slide="13" title="Up Next"></button>
+  <button class="nav-dot" data-slide="9" title="The Demo"></button>
+  <button class="nav-dot" data-slide="10" title="The Win"></button>
+  <button class="nav-dot" data-slide="11" title="Stretch Challenge"></button>
+  <button class="nav-dot" data-slide="12" title="Up Next"></button>
 </div>
 
 <script>
